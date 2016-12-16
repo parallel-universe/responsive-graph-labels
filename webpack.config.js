@@ -4,7 +4,7 @@ var libraryName = 'responsive-graph-labels';
 var outputFile = libraryName + '.js';
 
 var config = {
-  entry: __dirname + '/src/index.js',
+  entry: __dirname + '/src/responsive-graph-labels.js',
   devtool: 'source-map',
   output: {
     path: __dirname + '/lib',
@@ -18,7 +18,10 @@ var config = {
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /(node_modules|bower_components)/
+        exclude: /(node_modules|bower_components)/,
+        query: {
+          presets: ['es2015']
+        }
       },
       {
         test: /\.js$/,
