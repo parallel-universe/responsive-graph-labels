@@ -2,12 +2,13 @@ import primesFactors from 'primes-and-factors';
 import { range } from 'range';
 
 const responsiveGraphLabels = {
-    resizeLabelArray(options) {
+    scale(options) {
         ({
             labels: this.labels,
             labelWidth: this.labelWidth,
             labelPadding: this.labelPadding,
             labelContainerWidth: this.labelContainerWidth,
+            emptyLabelValue: this.emptyLabelValue,
         } = options);
 
         if (this.canShowAllLabels()) {
@@ -47,7 +48,7 @@ const responsiveGraphLabels = {
             if (element === result.slice(0, 1).pop()) {
                 return result.shift();
             }
-            return '';
+            return this.emptyLabelValue;
         });
     },
 
@@ -60,7 +61,7 @@ const responsiveGraphLabels = {
                 return element;
             }
 
-            return '';
+            return this.emptyLabelValue;
         });
     },
 

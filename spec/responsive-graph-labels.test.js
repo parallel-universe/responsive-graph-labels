@@ -5,12 +5,14 @@ describe('Label container capacity calculator', function() {
         const labelContainerWidth = 70;
         const labelWidth = 10;
         const labelPadding = 5;
+        const emptyLabelValue = '';
         const labels = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec','jan'];
 
-        const result = responsiveLabels.resizeLabelArray({
+        const result = responsiveLabels.scale({
             labels,
             labelWidth,
             labelPadding,
+            emptyLabelValue,
             labelContainerWidth,
         });
         
@@ -22,12 +24,14 @@ describe('Label container capacity calculator', function() {
         const labelContainerWidth = 70;
         const labelWidth = 10;
         const labelPadding = 5;
+        const emptyLabelValue = '';
         const labels = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec','jan', 'feb'];
 
-        const result = responsiveLabels.resizeLabelArray({
+        const result = responsiveLabels.scale({
             labels,
             labelWidth,
             labelPadding,
+            emptyLabelValue,
             labelContainerWidth,
         });
         
@@ -39,12 +43,14 @@ describe('Label container capacity calculator', function() {
         const labelContainerWidth = 70;
         const labelWidth = 10;
         const labelPadding = 5;
+        const emptyLabelValue = '';
         const labels = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec','jan', 'feb'];
 
-        const result = responsiveLabels.resizeLabelArray({
+        const result = responsiveLabels.scale({
             labels,
             labelWidth,
             labelPadding,
+            emptyLabelValue,
             labelContainerWidth,
         });
         

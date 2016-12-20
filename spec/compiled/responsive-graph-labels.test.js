@@ -67,12 +67,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var labelContainerWidth = 70;
 	        var labelWidth = 10;
 	        var labelPadding = 5;
+	        var emptyLabelValue = '';
 	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan'];
 	
-	        var result = _responsiveGraphLabels2.default.resizeLabelArray({
+	        var result = _responsiveGraphLabels2.default.scale({
 	            labels: labels,
 	            labelWidth: labelWidth,
 	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
 	            labelContainerWidth: labelContainerWidth
 	        });
 	
@@ -84,12 +86,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var labelContainerWidth = 70;
 	        var labelWidth = 10;
 	        var labelPadding = 5;
+	        var emptyLabelValue = '';
 	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan', 'feb'];
 	
-	        var result = _responsiveGraphLabels2.default.resizeLabelArray({
+	        var result = _responsiveGraphLabels2.default.scale({
 	            labels: labels,
 	            labelWidth: labelWidth,
 	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
 	            labelContainerWidth: labelContainerWidth
 	        });
 	
@@ -101,12 +105,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var labelContainerWidth = 70;
 	        var labelWidth = 10;
 	        var labelPadding = 5;
+	        var emptyLabelValue = '';
 	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan', 'feb'];
 	
-	        var result = _responsiveGraphLabels2.default.resizeLabelArray({
+	        var result = _responsiveGraphLabels2.default.scale({
 	            labels: labels,
 	            labelWidth: labelWidth,
 	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
 	            labelContainerWidth: labelContainerWidth
 	        });
 	
@@ -193,11 +199,12 @@ return /******/ (function(modules) { // webpackBootstrap
 				}
 	
 				var responsiveGraphLabels = {
-					resizeLabelArray: function resizeLabelArray(options) {
+					scale: function scale(options) {
 						this.labels = options.labels;
 						this.labelWidth = options.labelWidth;
 						this.labelPadding = options.labelPadding;
 						this.labelContainerWidth = options.labelContainerWidth;
+						this.emptyLabelValue = options.emptyLabelValue;
 	
 						if (this.canShowAllLabels()) {
 							return this.labels;
@@ -219,6 +226,8 @@ return /******/ (function(modules) { // webpackBootstrap
 						return Math.floor(this.labelContainerWidth / (this.labelWidth + this.labelPadding));
 					},
 					bestPossibleDistribution: function bestPossibleDistribution() {
+						var _this = this;
+	
 						var weightedLimit = this.labelContainerCapacity() - 1;
 						var result = [];
 	
@@ -231,12 +240,13 @@ return /******/ (function(modules) { // webpackBootstrap
 						return this.labels.map(function (element) {
 							if (element === result.slice(0, 1).pop()) {
 								return result.shift();
-							} else {
-								return '';
 							}
+							return _this.emptyLabelValue;
 						});
 					},
 					evenDistribution: function evenDistribution() {
+						var _this2 = this;
+	
 						var bestProgression = this.findBestProgression();
 						var markedIndexes = (0, _range.range)(0, this.labels.length, bestProgression.factor);
 	
@@ -245,15 +255,15 @@ return /******/ (function(modules) { // webpackBootstrap
 								return element;
 							}
 	
-							return '';
+							return _this2.emptyLabelValue;
 						});
 					},
 					generateProgressionOptions: function generateProgressionOptions() {
-						var _this = this;
+						var _this3 = this;
 	
 						var factors = _primesAndFactors2.default.getUniqueFactors(this.labels.length - 1);
 						return factors.map(function (value) {
-							var count = (_this.labels.length - 1) / value + 1;
+							var count = (_this3.labels.length - 1) / value + 1;
 							return {
 								factor: value,
 								count: count
