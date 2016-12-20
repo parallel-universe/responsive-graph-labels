@@ -63,19 +63,54 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	describe('Label container capacity calculator', function () {
-	    it('Calculates the number of labels able to fit in a container of width x correctly', function () {
+	    it('Returns the first and last values given an odd number of labels', function () {
 	        var labelContainerWidth = 70;
 	        var labelWidth = 10;
 	        var labelPadding = 5;
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan'];
 	
 	        var result = _responsiveGraphLabels2.default.resizeLabelArray({
-	            labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan'],
+	            labels: labels,
 	            labelWidth: labelWidth,
 	            labelPadding: labelPadding,
 	            labelContainerWidth: labelContainerWidth
 	        });
 	
-	        expect(result).toEqual(6);
+	        expect(result[0]).toEqual('jan');
+	        expect(result[result.length - 1]).toEqual('jan');
+	    });
+	
+	    it('Returns the first and last values given an even number of labels', function () {
+	        var labelContainerWidth = 70;
+	        var labelWidth = 10;
+	        var labelPadding = 5;
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan', 'feb'];
+	
+	        var result = _responsiveGraphLabels2.default.resizeLabelArray({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result[0]).toEqual('jan');
+	        expect(result[result.length - 1]).toEqual('feb');
+	    });
+	
+	    it('Returns the same number of elements as was provided', function () {
+	        var labelContainerWidth = 70;
+	        var labelWidth = 10;
+	        var labelPadding = 5;
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan', 'feb'];
+	
+	        var result = _responsiveGraphLabels2.default.resizeLabelArray({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result.length).toEqual(labels.length);
 	    });
 	});
 
