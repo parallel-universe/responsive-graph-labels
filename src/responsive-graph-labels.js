@@ -43,7 +43,12 @@ const responsiveGraphLabels = {
 
         result.push(this.labels[this.labels.length - 1]);
 
-        return result;
+        return this.labels.map((element) => {
+            if (element === result.slice(0, 1).pop()) {
+                return result.shift();
+            }
+            return '';
+        });
     },
 
     evenDistribution() {

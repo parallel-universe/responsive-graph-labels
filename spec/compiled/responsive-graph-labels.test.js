@@ -228,7 +228,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 						result.push(this.labels[this.labels.length - 1]);
 	
-						return result;
+						return this.labels.map(function (element) {
+							if (element === result.slice(0, 1).pop()) {
+								return result.shift();
+							} else {
+								return '';
+							}
+						});
 					},
 					evenDistribution: function evenDistribution() {
 						var bestProgression = this.findBestProgression();
