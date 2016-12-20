@@ -4,11 +4,14 @@ var libraryName = 'responsive-graph-labels';
 var outputFile = libraryName + '.js';
 
 var config = {
-  entry: __dirname + '/src/responsive-graph-labels.js',
+  entry: {
+    'lib/responsive-graph-labels': './src/responsive-graph-labels.js',
+    'spec/compiled/responsive-graph-labels.test': './spec/responsive-graph-labels.test.js'
+  },
   devtool: 'source-map',
   output: {
-    path: __dirname + '/lib',
-    filename: outputFile,
+    path: './',
+    filename: '[name].js',
     library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
@@ -26,7 +29,7 @@ var config = {
       {
         test: /\.js$/,
         loader: "eslint-loader",
-        exclude: /node_modules/
+        exclude: /(node_modules|spec|lib)/
       }
     ]
   },

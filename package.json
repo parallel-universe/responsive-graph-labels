@@ -28,6 +28,7 @@
     "webpack": "^1.14.0"
   },
   "dependencies": {
-    "primes-and-factors": "^0.1.4"
+    "primes-and-factors": "^0.1.4",
+    "range": "0.0.3"
   }
 }
