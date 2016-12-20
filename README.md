@@ -3,9 +3,17 @@ A small library originally made for chartist.js which takes uniform length graph
 
 ## Usage
 
-Run the tests by running `jasmine` in your cli
+- Run the tests by running `jasmine` in your cli
 
-Webpack similarly is triggered by running `webpack` in your cli
+- Webpack similarly is triggered by running `webpack` in your cli
+
+- eslint is automatically executed with webpack care of 
+[eslint-loader](https://github.com/MoOx/eslint-loader) and [airbnb eslint config](https://github.com/airbnb/javascript)
+
+- The module is written in vanilla ES6.
+
+
+## How it works
 
 The calculation requires 4 arguments:
 
