@@ -42,7 +42,7 @@ The above example would give the resulting array:
 
 There are two scenarios we have to handle. the majority case is an odd number of labels(n) 
 or an even number of labels(n) where `(n - 1)` is not a prime number. The second
-case is that where the number of `(n - 1)` is a prime number.
+case is that where `(n - 1)` is a prime number.
 
 ### Approach 1:
 
