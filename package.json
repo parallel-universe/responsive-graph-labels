@@ -1,9 +1,9 @@
 {
   "name": "responsive-graph-labels",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A small library originally made for chartist.js which takes uniform length graph labels and returns an optimal, evenly distributed set for the available width. Always returns the first and last value.",
   "keywords": ["graph", "labels", "axis", "responsive", "mobile", "chartist"],
-  "main": "index.js",
+  "main": "lib/responsive-graph-labels.js",
   "scripts": {
     "test": "webpack; jasmine"
   },
