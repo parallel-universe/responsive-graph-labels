@@ -15,14 +15,15 @@ A small library originally made for chartist.js which takes uniform length graph
 
 ## How it works
 
-The calculation requires 4 arguments:
+The calculation requires 5 arguments:
 
 | argument  | description  |
 |---|---|
 |  labels | an array containing the labels to be resized  |
 |  labelWidth | the pixel width of rendered labels  |
 | labelPadding  |  the pixel width of padding on the labels |
-| emptyLabelValue | the value to place in slots which are removed
+| emptyLabelValue | the value to place in slots which are removed |
+| labelContainerWidth | the containers width in pixels |
 
 For example:
 
