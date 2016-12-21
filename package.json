@@ -1,6 +1,6 @@
 {
   "name": "responsive-graph-labels",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A small library originally made for chartist.js which takes uniform length graph labels and returns an optimal, evenly distributed set for the available width. Always returns the first and last value.",
   "keywords": ["graph", "labels", "axis", "responsive", "mobile", "chartist"],
   "main": "index.js",
@@ -15,6 +15,10 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/parallel-universe/responsive-graph-labels/issues"
+  },
+  "config": {
+    "src": "src",
+    "dist": "lib"
   },
   "homepage": "https://github.com/parallel-universe/responsive-graph-labels#readme",
   "devDependencies": {
