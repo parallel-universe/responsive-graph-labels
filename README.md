@@ -11,7 +11,7 @@ Since the tests are written in ES6 they need to be webpacked so the `build` and 
 
 - To build the files and run tests you can use `npm test` in the cli
 
-- To build the project run `npm build`
+- To build the project run `npm run build`
 
 - Run the tests only by running `jasmine` in your cli
 
