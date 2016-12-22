@@ -64,9 +64,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	describe('Responsive labels', function () {
 	    it('Returns the first and last values given an odd number of labels', function () {
-	        var labelContainerWidth = 70;
-	        var labelWidth = 10;
-	        var labelPadding = 5;
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
 	        var emptyLabelValue = '';
 	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan'];
 	
@@ -83,9 +83,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	
 	    it('Returns the first and last values given an even number of labels', function () {
-	        var labelContainerWidth = 70;
-	        var labelWidth = 10;
-	        var labelPadding = 5;
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
 	        var emptyLabelValue = '';
 	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct'];
 	
@@ -102,9 +102,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	
 	    it('Returns the first and last values given a number one greater than a prime', function () {
-	        var labelContainerWidth = 70;
-	        var labelWidth = 10;
-	        var labelPadding = 5;
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
 	        var emptyLabelValue = '';
 	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan', 'feb'];
 	
@@ -121,9 +121,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	
 	    it('Returns the same number of elements as was provided', function () {
-	        var labelContainerWidth = 70;
-	        var labelWidth = 10;
-	        var labelPadding = 5;
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
 	        var emptyLabelValue = '';
 	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan', 'feb'];
 	
@@ -157,9 +157,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	
 	    it('Removes elements and replaces them with the specified emptyLabelValue', function () {
-	        var labelContainerWidth = 100;
-	        var labelWidth = 10;
-	        var labelPadding = 5;
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
 	        var emptyLabelValue = 'x';
 	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan', 'feb'];
 	
@@ -175,9 +175,66 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	
 	    it('Always leaves at least two labels when given an odd number of labels', function () {
-	        var labelContainerWidth = 1;
-	        var labelWidth = 10;
-	        var labelPadding = 5;
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
+	        var emptyLabelValue = 'x';
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov'];
+	
+	        var result = _responsiveGraphLabels2.default.scale({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result).toContain('jan');
+	        expect(result).toContain('nov');
+	    });
+	
+	    it('Always leaves at least two labels when given an even number of labels', function () {
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
+	        var emptyLabelValue = 'x';
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct'];
+	
+	        var result = _responsiveGraphLabels2.default.scale({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result).toContain('jan');
+	        expect(result).toContain('oct');
+	    });
+	
+	    it('Always leaves at least two labels when given an even number of labels where the number of labels is one greater than a prime', function () {
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
+	        var emptyLabelValue = 'x';
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+	
+	        var result = _responsiveGraphLabels2.default.scale({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result).toContain('jan');
+	        expect(result).toContain('dec');
+	    });
+	
+	    it('returns the expected distribution of labels given the minimum width and an odd number of labels', function () {
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
 	        var emptyLabelValue = 'x';
 	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan'];
 	
@@ -189,8 +246,97 @@ return /******/ (function(modules) { // webpackBootstrap
 	            labelContainerWidth: labelContainerWidth
 	        });
 	
-	        expect(result).toContain('jan');
-	        expect(result).toContain('jan');
+	        expect(result).toEqual(['jan', 'x', 'x', 'apr', 'x', 'x', 'jul', 'x', 'x', 'oct', 'x', 'x', 'jan']);
+	    });
+	
+	    it('returns the expected distribution of labels given a mid-range width and an odd number of labels', function () {
+	        var labelContainerWidth = 400;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
+	        var emptyLabelValue = 'x';
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan'];
+	
+	        var result = _responsiveGraphLabels2.default.scale({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result).toEqual(['jan', 'x', 'mar', 'x', 'may', 'x', 'jul', 'x', 'sep', 'x', 'nov', 'x', 'jan']);
+	    });
+	
+	    it('returns the expected distribution of labels given the minimum width and an even number of labels', function () {
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
+	        var emptyLabelValue = 'x';
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct'];
+	
+	        var result = _responsiveGraphLabels2.default.scale({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result).toEqual(['jan', 'x', 'x', 'apr', 'x', 'x', 'jul', 'x', 'x', 'oct']);
+	    });
+	
+	    it('returns the expected distribution of labels given a mid-range width and an even number of labels', function () {
+	        var labelContainerWidth = 400;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
+	        var emptyLabelValue = 'x';
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct'];
+	
+	        var result = _responsiveGraphLabels2.default.scale({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result).toEqual(['jan', 'x', 'x', 'apr', 'x', 'x', 'jul', 'x', 'x', 'oct']);
+	    });
+	
+	    it('returns the expected distribution of labels given the minimum width and where the number of labels is one greater than a prime', function () {
+	        var labelContainerWidth = 200;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
+	        var emptyLabelValue = 'x';
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+	
+	        var result = _responsiveGraphLabels2.default.scale({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result).toEqual(['jan', 'x', 'x', 'x', 'x', 'x', 'jul', 'x', 'x', 'x', 'x', 'dec']);
+	    });
+	
+	    it('returns the expected distribution of labels given a mid-range width and where the number of labels is one greater than a prime', function () {
+	        var labelContainerWidth = 400;
+	        var labelWidth = 38;
+	        var labelPadding = 27;
+	        var emptyLabelValue = 'x';
+	        var labels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+	
+	        var result = _responsiveGraphLabels2.default.scale({
+	            labels: labels,
+	            labelWidth: labelWidth,
+	            labelPadding: labelPadding,
+	            emptyLabelValue: emptyLabelValue,
+	            labelContainerWidth: labelContainerWidth
+	        });
+	
+	        expect(result).toEqual(['jan', 'x', 'mar', 'x', 'may', 'x', 'x', 'aug', 'x', 'oct', 'x', 'dec']);
 	    });
 	});
 
