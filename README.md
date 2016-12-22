@@ -7,7 +7,13 @@ A small library originally made for chartist.js which takes uniform length graph
 
 ## Usage
 
-- Run the tests by running `jasmine` in your cli
+Since the tests are written in ES6 they need to be webpacked so the `build` and `test` commands do the same thing.
+
+- To build the files and run tests you can use `npm test` in the cli
+
+- To build the project run `npm build`
+
+- Run the tests only by running `jasmine` in your cli
 
 - Webpack similarly is triggered by running `webpack` in your cli
 
