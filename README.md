@@ -1,6 +1,10 @@
 # responsive-graph-labels
 A small library originally made for chartist.js which takes uniform length graph labels and returns an optimal, evenly distributed set for the available width. Always returns the first and last value.
 
+## Installation
+
+`npm install --save responsive-graph-labels`
+
 ## Usage
 
 - Run the tests by running `jasmine` in your cli
@@ -10,7 +14,7 @@ A small library originally made for chartist.js which takes uniform length graph
 - eslint is automatically executed with webpack care of 
 [eslint-loader](https://github.com/MoOx/eslint-loader) and [airbnb eslint config](https://github.com/airbnb/javascript)
 
-- The module is written in vanilla ES6.
+- The module is written in vanilla ES6 and transpiled into ES5 by babel.
 
 
 ## How it works
