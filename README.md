@@ -69,7 +69,9 @@ not satisfy: `(n-1) = P`
 
 - where `P` is a prime number
 
-### Approach 2:
+
+### Approach 2:
+
 
 Where we have a prime number, it is not divisible and so we fall back to an estimation
 this technique calculates a step which is used to pick items from the labels array 
